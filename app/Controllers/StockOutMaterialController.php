@@ -9,7 +9,7 @@ use App\Models\StockOutMaterial;
 class StockOutMaterialController extends BaseController
 {
     public function index(){
-        $data['page_title'] = 'Stock In Material';
+        $data['page_title'] = 'Stock Out Material';
         $model = new StockOutMaterial();
         // $data['stock_ins'] = $model->findAll();
         $data['stock_outs'] = $model->select('stock_out_materials.*, materials.nama as material_name')
@@ -21,7 +21,7 @@ class StockOutMaterialController extends BaseController
 
     public function create(){
         session();
-        $data['page_title'] = 'Create Stock In';
+        $data['page_title'] = 'Create Stock Out';
         $data['validation'] = \Config\Services::validation();
         $asset = new StockOutMaterial();
         $model = new Material();

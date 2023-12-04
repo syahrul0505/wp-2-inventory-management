@@ -25,12 +25,12 @@ class UserController extends BaseController
 
     public function index()
     {
-        $data['title'] = 'User List';
+        $data['page_title'] = 'User List';
         // get user join role table
         $model = new UserModel();
         $data['users'] = $model->select('users.*, role.name as role_name')
-                                ->join('role', 'role.id = users.role_id')
-                                ->findAll();
+        ->join('role', 'role.id = users.role_id')
+        ->findAll();
         return view('users/user_list.php', $data);
     }
 
